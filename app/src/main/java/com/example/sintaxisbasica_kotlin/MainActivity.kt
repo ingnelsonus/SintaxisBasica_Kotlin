@@ -22,6 +22,20 @@ class MainActivity : AppCompatActivity() {
         //sentenciawhen()
 
         //Leccion 5
+        //arrays()
+
+        //Leccion 6.
+        //maps()
+
+        //Leccion 7.
+        //loops()
+
+        //Leccion 8
+        //nullSafety()
+
+        //Leccion 10
+        clases()
+
 
     }
 
@@ -101,9 +115,6 @@ class MainActivity : AppCompatActivity() {
         }else{
             println("$myNumber es mayor que 10")
         }
-
-
-
     }
 
     /*Aqui vamos a habla de la sentencia when*/
@@ -138,6 +149,122 @@ class MainActivity : AppCompatActivity() {
                 println("Estes un anciano")
             }
         }
+    }
+
+    /*Aqui vamos a hablar de arrays*/
+    private fun arrays(){
+        val name ="Nelson"
+        val surName ="Usuga"
+        val company ="CopEngienering"
+        val age ="30"
+
+        //Creacion de un array.
+        val myArray:ArrayList<String> = arrayListOf<String>()
+
+        //1. Añadir datos uno a uno
+        //myArray.add(name)
+        //myArray.add(surName)
+        //myArray.add(company)
+        //myArray.add(age)
+
+        //Añadir un conjunto de datos.
+        myArray.addAll(listOf("Hola","Bienvenidos","Al Tutorial"))
+        println(myArray)
+
+        //Acceso a datos.
+        val myCompany:String = myArray[2]
+        println(myCompany)
+
+        //Modificacion de datos.
+        myArray[5]="Suscribete y activa la campana"
+
+        //Eliminar un Iten.
+        myArray.removeAt(4)
+
+        println(myArray)
+
+        //Recorrer un array
+        myArray.forEach {
+            println(it)
+        }
+
+    }
+
+    /*Aqui vamos a hablar de Mapas*/
+    private fun maps(){
+        //Sintaxis.
+        var myMap:Map<String,Int> = mapOf()
+        println(myMap)
+
+        //Añadir elementos
+        myMap = mutableMapOf("Nelson" to 1,"Pedro" to 2,"Sara" to 5)
+        println(myMap)
+
+        //Añadir un solo valor.
+        myMap["Ana"]=7
+        myMap.put("Maria",8)
+        println(myMap)
+
+        //Acceso a datos.
+        println(myMap["Nelson"])
+
+        //Eliminar
+        myMap.remove("Nelson")
+
+    }
+
+    /*Aqui hablamos de loops*/
+    private fun loops(){
+
+        //Bucles
+        val myArray:List<String> = listOf("Hola","Bienvenido al tutorial","Suscribete")
+        val myMap: MutableMap<String,Int> = mutableMapOf("Nelson" to 1,"Pedro" to 2,"Sata" to 5)
+
+        //For.
+        for (myItem in myArray){
+            println(myItem)
+        }
+
+        for(myElement:MutableMap.MutableEntry<String,Int> in myMap){
+            println("${myElement.key}-${myElement.value}")
+        }
+
+        //While
+        var x=0
+
+        while (x<10){
+            println(x)
+            x++
+
+        }
+
+
+    }
+
+    //Aqui hablamos de seguridad contra Nulls.
+    private fun nullSafety(){
+
+        var myString ="Nelsonu"
+        //myString= null
+        println(myString)
+
+        var mySafetyString:String? ="MoureDev null Safety"
+
+        println(mySafetyString?.let { println(it) })
+
+    }
+
+    /*Aqui hablamos de clases*/
+    private fun clases(){
+
+        var nelson =Programmer("Nelson",30, arrayOf(Programmer.Language.CSHARP,Programmer.Language.KOTLIN))
+        println(nelson.name)
+        nelson.code()
+
+        var angie = Programmer("Anfie",30, arrayOf(Programmer.Language.JAVA), arrayOf(nelson))
+        angie.code()
+
+        println("${angie.friends?.first()?.name} es manigo de Angie")
     }
 
 }
